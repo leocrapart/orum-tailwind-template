@@ -1,15 +1,17 @@
 ;; shadow-cljs configuration
-{:deps
- {:aliases [:cljs]}
+{:source-paths
+ ["src"]
+ 
+ :dependencies 
+ [[rum "0.12.6"]
+  [net.sekao/odoyle-rules "0.11.0"]
+  [net.sekao/odoyle-rum "0.11.0"]]
 
  :dev-http
- {8020 "public"}
+ {8888 "public"}
 
  :builds
- {:app
-  {:target :browser
-   :output-dir "public/js"
-   :asset-path "/js"
-   :modules
-   {:main
-    {:init-fn tailwind.app/init}}}}}
+ {:app {:target     :browser
+        :output-dir "public/js"
+        :asset-path "/js"
+        :modules    {:main {:init-fn main.app/init}}}}}
